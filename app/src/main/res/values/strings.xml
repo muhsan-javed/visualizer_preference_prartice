@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Visualizer_Preference</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Label for the show bass checkbox preference  -->
+    <string name="pref_show_bass_label">Show Bass</string>
+    <string name="pref_show_bass_key" translatable="false">show_bass</string>
+
+    <string name="pref_show_min_range_label">Show Maid Range</string>
+    <string name="pref_show_min_range_key" translatable="false">show_mid_range</string>
+
+    <string name="pref_show_treble_label">Show Treble</string>
+    <string name="pref_show_treble_key" translatable="false">show_treble</string>
+
+
+<!--    Summary for CheckBoxes-->
+    <string name="pref_show_true">Shown</string>
+    <string name="pref_show_false">Hidden</string>
+
+    <!-- - - - - - - - - - - - - - - -
+           - Used by Preferences  -
+           - - - - - - - - - - - - - - - -->
+
+    <string name="pref_color_label">Shape Color</string>
+    <string name="pref_color_label_red">Red</string>
+    <string name="pref_color_label_blue">Blue</string>
+    <string name="pref_color_label_green">Green</string>
+
+    <string name="pref_color_key" translatable="false">color</string>
+
+    <!-- Value in SharedPreferences for red color option -->
+    <string name="pref_color_red_value" translatable="false">red</string>
+
+    <!-- Value in SharedPreferences for blue color option -->
+    <string name="pref_color_blue_value" translatable="false">blue</string>
+
+    <!-- Value in SharedPreferences for green color option -->
+    <string name="pref_color_green_value" translatable="false">green</string>
+
+    
+    <!--  label for the size preference  -->
+    <string name="pref_size_label">Size Multiplier</string>
+    <string name="pref_size_key" translatable="false">size</string>
+    <string name="pref_size_default" translatable="false">1</string>
+
+</resources>
