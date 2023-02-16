@@ -1,10 +1,5 @@
 package com.muhsanjaved.visualizer_preference;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.preference.PreferenceManager;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,9 +8,13 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.preference.PreferenceManager;
 
 import com.muhsanjaved.visualizer_preference.AudioVisuals.AudioInputReader;
 import com.muhsanjaved.visualizer_preference.AudioVisuals.VisualizerView;
@@ -85,10 +84,8 @@ public class VisualizerPreference extends AppCompatActivity implements SharedPre
         @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.visualizher_main, menu);
-
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.visualizher_main, menu);
-
+        //MenuInflater inflater = getMenuInflater();
+        //inflater.inflate(R.menu.visualizer_main, menu);
         return true;
     }
 
