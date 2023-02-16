@@ -31,8 +31,7 @@ public class VisualizerPreference extends AppCompatActivity implements SharedPre
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visualizer);
-
-        mVisualizerView = (VisualizerView) findViewById(R.id.activity_visualizer);
+        mVisualizerView = findViewById(R.id.activity_visualizer);
         setupSharePreferences();
         setupPermissions();
     }
@@ -84,8 +83,6 @@ public class VisualizerPreference extends AppCompatActivity implements SharedPre
         @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.visualizher_main, menu);
-        //MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.visualizer_main, menu);
         return true;
     }
 
@@ -101,14 +98,9 @@ public class VisualizerPreference extends AppCompatActivity implements SharedPre
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * Below this point is code you do not need to modify; it deals with permissions
-     * and starting/cleaning up the AudioInputReader
-     **/
 
-    /**
-     * onPause Cleanup audio stream
-     **/
+     // Below this point is code you do not need to modify; it deals with permissions and starting/cleaning up the AudioInputReader
+     // onPause Cleanup audio stream
     @Override
     protected void onPause() {
         super.onPause();
@@ -151,14 +143,12 @@ public class VisualizerPreference extends AppCompatActivity implements SharedPre
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[],int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[],int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case MY_PERMISSION_RECORD_AUDIO_REQUEST_CODE: {
                 // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     // The permission was granted! Start up the visualizer!
                     mAudioInputReader = new AudioInputReader(mVisualizerView, this);
 
