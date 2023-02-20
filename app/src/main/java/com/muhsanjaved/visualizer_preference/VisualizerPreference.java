@@ -145,21 +145,16 @@ public class VisualizerPreference extends AppCompatActivity implements SharedPre
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[],int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode) {
-            case MY_PERMISSION_RECORD_AUDIO_REQUEST_CODE: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    // The permission was granted! Start up the visualizer!
-                    mAudioInputReader = new AudioInputReader(mVisualizerView, this);
+        if (requestCode == MY_PERMISSION_RECORD_AUDIO_REQUEST_CODE) {// If request is cancelled, the result arrays are empty.
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // The permission was granted! Start up the visualizer!
+                mAudioInputReader = new AudioInputReader(mVisualizerView, this);
 
-                } else {
-                    Toast.makeText(this, "Permission for audio not granted. Visualizer can't run.", Toast.LENGTH_LONG).show();
-                    finish();
+            } else {
+                Toast.makeText(this, "Permission for audio not granted. Visualizer can't run.", Toast.LENGTH_LONG).show();
+                finish();
 
-                }
             }
-
-
         }
     }
 
