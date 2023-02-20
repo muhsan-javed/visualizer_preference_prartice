@@ -13,6 +13,8 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceScreen;
 
+import java.util.Objects;
+
 public class SettingFragment extends PreferenceFragmentCompat
         implements SharedPreferences.OnSharedPreferenceChangeListener, Preference.OnPreferenceChangeListener {
 
@@ -72,7 +74,7 @@ public class SettingFragment extends PreferenceFragmentCompat
         Preference preference = findPreference(key);
 
         if (null != preference) {
-            //  Updates the summary for the perference
+            //  Updates the summary for the preference
             if (!(preference instanceof CheckBoxPreference)) {
                 String value = sharedPreferences.getString(preference.getKey(), "");
                 setPreferenceSummary(preference, value);
@@ -94,7 +96,7 @@ public class SettingFragment extends PreferenceFragmentCompat
     @Override
     public void onDestroy() {
         super.onDestroy();
-        getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
+        Objects.requireNonNull(getPreferenceScreen().getSharedPreferences()).unregisterOnSharedPreferenceChangeListener(this);
     }
 
     @Override
@@ -102,7 +104,7 @@ public class SettingFragment extends PreferenceFragmentCompat
         // In This conText, we're using the onPreferenceChange Listener for checking whether the size setting was set to a valid value
         Toast error = Toast.makeText(getContext(), "Please select a number between 0.1 and 3",Toast.LENGTH_SHORT);
 
-        // Duoble check that the preference is the size preference
+        // Double check that the preference is the size preference
         String sizeKey  = getString(R.string.pref_size_key);
 
         if (preference.getKey().equals(sizeKey)){
@@ -110,13 +112,13 @@ public class SettingFragment extends PreferenceFragmentCompat
 
             try {
                 float size =  Float.parseFloat(stringSize);
-                // If the numebr is outside of the acceptable range, show an error.
+                // If the number is outside of the acceptable range, show an error.
                 if (size > 3 || size <= 0){
                     error.show();
                     return true;
                 }
             }catch (NumberFormatException numberFormatException){
-                // If whaterver the user entered can't be parsed to a number, show an error
+                // If whatever the user entered can't be parsed to a number, show an error
                 error.show();
             }
         }
