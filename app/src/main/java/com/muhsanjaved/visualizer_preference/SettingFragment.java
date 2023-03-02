@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.preference.CheckBoxPreference;
 import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
@@ -31,15 +30,18 @@ public class SettingFragment extends PreferenceFragmentCompat
             Preference p = prefScreen.getPreference(i);
 
             if (!(p instanceof CheckBoxPreference)) {
+                assert sharedPreferences != null;
                 String value = sharedPreferences.getString(p.getKey(), "");
                 setPreferenceSummary(p, value);
             }
         }
 
         Preference preference = findPreference(getString(R.string.pref_size_key));
+        assert preference != null;
         preference.setOnPreferenceChangeListener(this);
 
     }
+
 
     //  This method should check if the preference is a listPreference and , If so, find the label associated with the value.
     //  You can do this by using the findIndexOfValue and getEntries method of Preference.
@@ -89,7 +91,6 @@ public class SettingFragment extends PreferenceFragmentCompat
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
-
     }
 
     //  UnRegister

@@ -17,7 +17,6 @@ public class AudioInputReader {
     private MediaPlayer mPlayer;
     private Visualizer mVisualizer;
 
-
     public AudioInputReader(VisualizerView visualizerView, Context context) {
         this.mVisualizerView = visualizerView;
         this.mContext = context;
